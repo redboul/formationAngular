@@ -1,0 +1,25 @@
+{
+  "name": "tps",
+  "version": "0.0.0",
+  "authors": [
+    "julien-reboul <julien.reboul@bonitasoft.com>"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.13",
+    "angular-ui-bootstrap": "~0.11.0",
+    "ui-bootstrap": "~0.11.0"
+  }
+}

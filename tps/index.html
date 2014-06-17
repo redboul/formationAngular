@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="app/bower_components/bootstrap/dist/css/bootstrap.css">
+        <script type="text/javascript" src='app/bower_components/jquery/jquery.js'></script>
+        <script type="text/javascript" src='app/bower_components/angular/angular.js'></script>
+        <script type="text/javascript" src='app/bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js'></script>
+        <script type="text/javascript" src='controller/FormController.js'></script>
+    </head>
+    <body ng-app='formationAngularTPS'>
+        <div class='container' id='main'>
+            <h1><span class='label label-primary'>Formation AngularJS</span></h1>
+            <hr/>
+            <div class='well'>
+                <div id='expression'>
+                    2 + 2 = {{2 + 2}} from {{'ninja' + 'squad'}} !
+                </div>
+            </div>
+            <hr/>
+            <div ng-controller="FormController">
+                <form role='form' class='form-inline'>
+                    <div id='inputBinding' class='input-group'>
+                        <span class="input-group-addon">Name</span>
+                        <input class='form-control' type='text' id='name' ng-model='person.name'/>
+                    </div>
+
+                    <span class="label label-info">{{person.name}}</span>
+                    <div class='input-group' id='inputBinding'>
+                        <input class='form-control'  type='text' id='age' ng-model='person.age'/>
+                        <span class="input-group-addon">Age</span>
+                    </div>
+                    <span class="label label-info">{{person.age}}</span>
+                    <hr/>
+                    <div ng-controller="SubmitController">
+                        <a class="btn btn-danger" href='#' ng-click='showFormInputs()'>Show!</a>
+                        <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
