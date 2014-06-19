@@ -1,0 +1,5 @@
+<p ng-init='init()'>This is the live view.</p>
+<div ng-repeat="position in positions track by position.poney" ng-style="{'margin-left': position.position*4 + 'px', transition: 'all linear 1s'}">
+  <img class="media-object" style='height: 50px' ng-src="/images/poney-{{position.poney | lowercase}}.png" alt="{{position.poney}}">
+</div>
+

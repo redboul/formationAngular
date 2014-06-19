@@ -1,0 +1,14 @@
+<div class='animated fadeInRight'>
+  <p>This is the race view.</p>
+  <div class="media" id='raceDetails'>
+    <h4 class="media-heading" style='padding-bottom: 20px;'>{{racesDetails.race.name}} is {{racesDetails.race.status}} <div class='pull-right'><a class='btn btn-lg btn-primary' ng-if='racesDetails.race.status == "READY"' href='#/race/{{racesDetails.race.id}}/live'>Start!</a></div></h4>
+    <div class="media-body">
+      <div ng-repeat="poney in racesDetails.race.poneys">
+        <div poney poney-name='{{poney}}' bet-poney='racesDetails.bettedPoney === poney'>
+          <a class='btn btn-primary' ng-if='racesDetails.bettedPoney !== poney' ng-click='bet(racesDetails.race.id, poney)'>Bet!</a>
+          <a class='btn btn-primary' ng-if='racesDetails.bettedPoney === poney' ng-click='cancel(racesDetails.race.id, poney)'>Cancel!</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

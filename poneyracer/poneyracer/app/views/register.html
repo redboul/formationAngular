@@ -1,0 +1,34 @@
+<p>This is the register view.</p>
+<form name="registerForm" class='animated fadeInDown' role="form" style='margin-bottom: 15px' ng-submit='register(user)'>
+  <div class="form-group">
+    <label>Firstname</label>
+    <input id="firstname" name="firstname" type="text" class="form-control" placeholder="Enter firstname" ng-model="user.firstName" ng-required="true">
+  </div>
+  <div class="form-group">
+    <label>Lastname</label>
+    <input id="lastname" name="lastname" type="text" class="form-control" placeholder="Enter lastname" ng-model="user.lastName" ng-required="true">
+  </div>
+  <div class="form-group has-feedback" ng-class="{ 'has-warning' : !registerForm.email.$valid && registerForm.email.$dirty }">
+    <label>Email</label>
+    <input id="email" name="email" type="email" class="form-control" placeholder="Enter email" ng-model="user.email" ng-required="true">
+    <span ng-show='!registerForm.email.$valid && registerForm.email.$dirty' class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+    <label ng-show='!registerForm.email.$valid && registerForm.email.$dirty' class="control-label" for="email">Your email must be valid so we can spam you</label>
+  </div>
+  <div id="group-birthYear" class="form-group has-feedback" ng-class="{ 'has-error' : registerForm.birthYear.$valid && registerForm.birthYear.$dirty  && isMineur(registerForm.birthYear.$viewValue)}">
+    <label id="label-birthYear">Date Of Birth</label>
+    <input id="birthYear" name="birthYear" type="number" class="form-control" placeholder="Enter Date of birth" ng-model="user.birthYear" ng-required="true">
+    <span ng-show='registerForm.birthYear.$valid && registerForm.birthYear.$dirty && isMineur(registerForm.birthYear.$viewValue)' class="glyphicon glyphicon-remove form-control-feedback"></span>
+    <label id="label-error-birthYear" ng-show='registerForm.birthYear.$valid && registerForm.birthYear.$dirty && isMineur(registerForm.birthYear.$viewValue)' class="control-label" for="birthYear">You have to be a grown-up to bet on poneys</label>
+  </div>
+  <div class="form-group has-feedback" class="form-group has-feedback" ng-class="{ 'has-warning' : !registerForm.login.$valid && registerForm.login.$dirty}">
+    <label id='login-label' ng-class='{red: !registerForm.login.$valid && registerForm.login.$dirty} '>Login</label>
+    <input id="login" name="login" type="text" ng-minlength='2' class="form-control" placeholder="Enter Login" ng-model="user.login" ng-required="true">
+    <span ng-show='!registerForm.login.$valid && registerForm.login.$dirty' class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+    <label id='login-warning' ng-show='!registerForm.login.$valid && registerForm.login.$dirty' class="control-label" for="login">Your login should have at least two characters</label>
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input id="password" name="password" type="password" class="form-control" placeholder="Enter password" ng-model="user.password" ng-required="true">
+  </div>
+  <button ng-disabled='!registerForm.$valid || isMineur(registerForm.birthYear.$viewValue)' class='btn btn-lg btn-default'>Submit</button>
+</form>

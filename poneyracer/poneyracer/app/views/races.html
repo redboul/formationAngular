@@ -1,0 +1,22 @@
+  <p>This is the races view.</p>
+  <div id='races'>
+    <select ng-init='raceStatus = allStatus[0]' ng-model='raceStatus' ng-options="status for status in allStatus">
+    </select>
+    <table class='table table-hover table-striped'>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Status</th>
+          <th></th>
+        </thead>
+        <tbody>
+          <tr ng-repeat="race in races | filter:{status:raceStatus}">
+            <td>{{race.id}}</td>
+            <td>{{race.name}}</td>
+            <td> {{race.status}}</td>
+            <td><a class='btn btn-default' ng-href='#/race/{{race.id}}'>Details</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
